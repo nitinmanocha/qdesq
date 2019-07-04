@@ -1,0 +1,23 @@
+@layout('headerfooter') 
+
+
+
+@section('content')
+
+<div class="container contents">
+<h2> User Login Page</h2>
+<form action="/admin/login" method="POST">
+    <div class="m-10">
+        <input type="text" name="email" placeholder="Email" class="form-control">
+    </div>
+    <div class="m-10">
+        <input type="password" name="password" placeholder="Password" class="form-control">
+    </div>
+      <div class="m-10">
+   <button class="btn btn-success">Login</button>
+    
+   
+    </div>
+</form>
+</div>
+@endsection

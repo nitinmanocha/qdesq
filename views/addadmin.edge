@@ -1,0 +1,24 @@
+
+@layout('headerfooter') 
+
+
+@section('content')
+
+<div class="container">
+<h2> User Registration Page</h2>
+<form action="/admin/add" method="POST">
+    <div class="mt-10">
+        <input type="text" name="name" value="{{data.name || ''}}" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
+    </div>
+    <div class="mt-10">
+    <input type="text" name="email" value="{{data.email || ''}}" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input">
+        </div>
+    <div class="mt-10">
+        <input type="password" name="password" placeholder="Pssword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required class="single-input">
+    </div>
+      <div class="mt-10">
+   <button class="genric-btn info large circle">Register now</button>
+    </div>
+</form>
+</div>
+@endsection

@@ -1,0 +1,66 @@
+
+@layout('headerfooter') 
+
+
+
+@section('content')
+
+<div class="container">
+<nav class="navbar  navbar-expand navbar-light ">
+    <ul class="navbar-nav mr-auto">
+@if(auth)
+ <li class="nav-item active m-10">
+ <a class="btn btn-primary" href="/studentlist/asc" >Modify Records</a>
+ </li>
+ <li class="nav-item active m-10">
+ <a class="btn btn-primary" href="/logout" >Log Out</a>
+ </li></ul>
+@endif
+</nav>
+
+
+<div class=" bgimg contents">
+
+
+<h2> Fill out the details below to add new student record</h2>
+<form action="/student/register" method="POST">
+    <div class="m-10">
+        <input type="text" name="name"  placeholder="Name"  class="form-control">
+    </div>
+    <div class="m-10">
+    <input type="text" name="email" placeholder="Email" class="form-control">
+        </div>
+   
+     <div class="m-10">
+        <select class="form-control" name="semester" >
+        <option>Semester</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        </select>
+        </div>
+        <div class="m-10">
+<select class="form-control" name="course">
+        <option>B.tech</option>
+        <option>B.sc</option>
+        <option>B.des</option>
+        <option>B.arch</option>
+        <option>MS</option>
+        <option>M.tech</option>
+        </select>
+        
+
+    </div>
+      <div class="mt-10">
+   <button class="btn btn-success">Add Student</button>
+    </div>
+</form>
+</div>
+@endsection

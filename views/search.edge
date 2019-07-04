@@ -1,0 +1,54 @@
+@layout('headerfooter')
+
+ @section('content')
+
+<div class="container">
+<nav class="navbar  navbar-expand navbar-light ">
+    <ul class="navbar-nav mr-auto">
+ 
+@if(auth)
+     <li class="nav-item active m-10">
+ 
+<a href="/signup" class="btn btn-primary">Add Student</a>
+</li>
+<li class="nav-item active m-10">
+ <a class="btn btn-primary" href="/studentlist/asc" >Modify Records</a>
+ </li>
+ <li class="nav-item active m-10">
+ <a class="btn btn-primary" href="/logout" >Log Out</a>
+ </li></ul>
+<form class="form-inline my-2 my-lg-0" method="post" action="/studentlist/search">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search by name/email" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+@endif
+</nav>
+
+
+<div class=" bgimg contents">
+
+<h1 class="mt-10">Search Records</h1>
+       <table class="table">
+       <thead>
+       <td><b>Name</b></td>
+       <td><b>Email</b></td>
+       <td><b>Semester</b></td>
+       <td><b>Course</b></td>       
+       <td><b>Last Updated on</b></td>       
+       </thead>
+       @each(data in student)
+
+       <tr>
+       <td><b>{{data.name}}</b></td>
+       <td>{{data.email}}</td>
+       <td>{{data.semester}}</td>
+       <td>{{data.course}}</td>
+       <td>{{data.lastUpdated}}</td>
+       </tr>
+
+        @endeach
+       
+       </table>
+
+</div></div>
+@endsection 

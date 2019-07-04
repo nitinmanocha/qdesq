@@ -1,0 +1,54 @@
+@layout('headerfooter')
+
+ @section('content')
+
+<div class="container">
+<nav class="navbar  navbar-expand navbar-light ">
+    <ul class="navbar-nav mr-auto">
+      
+@if(auth)
+<li class="nav-item active m-10">
+ 
+<a href="/signup" class="btn btn-primary">Register New Student</a>
+</li>
+ <li class="nav-item active m-10">
+ <a class="btn btn-primary" href="/logout" >Log Out</a>
+ </li></ul>
+ <form class="form-inline my-2 my-lg-0" method="post" action="/studentlist/search">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search by name/email" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+@endif
+</nav>
+
+
+<div class=" bgimg contents">
+
+<h1 class="mt-10">List of All the Students</h1>
+       <table class="table">
+       <thead>
+       <td><b>Name</b><a href="/studentlist/asc"><img class="font" src="/img/arrow-circle-up-solid.svg" alt="des"></a> <a href="/studentlist/des"><img class="font" src="/img/arrow-circle-down-solid.svg" alt="des"></a></td>
+       <td><b>Email</b></td>
+       <td><b>Semester</b></td>
+       <td><b>Course</b></td>       
+       <td><b>Last Updated on</b></td>       
+       <td><b>Action</b></td>       
+       
+       </thead>
+       @each(student in Student)
+
+       <tr>
+       <td><b>{{student.name}}</b></td>
+       <td>{{student.email}}</td>
+       <td>{{student.semester}}</td>
+       <td>{{student.course}}</td>
+       <td>{{student.lastUpdated}}</td>
+       <td><a class="btn btn-primary" href="/update/{{student._id}}">Update</a> / <a class="btn btn-danger" href="/student/delete/{{student._id}}">Delete</a></td>
+       </tr>
+
+        @endeach
+       
+       </table>
+
+</div></div>
+@endsection 

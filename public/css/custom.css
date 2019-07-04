@@ -1,0 +1,18 @@
+.contents {
+    background: rgba(183, 205, 222, 0.89);
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+body {
+    padding: 30px;
+    background: url('../img//bg.jpg');
+    text-align: center;
+    height: 100px;
+}
+
+.font {
+    width: 30px;
+    padding: 5px 5px 5px 5px;
+}
